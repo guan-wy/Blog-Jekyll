@@ -1,0 +1,50 @@
+# Site settings
+
+# Blog info
+title: H2SO4's blog
+subTitle:
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+
+
+# My info
+github: https://github.com/guan-wy
+
+# Handling Reading
+safe:         false
+include:      [".htaccess"]
+exclude:      []
+keep_files:   [".git", ".svn"]
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+textile_ext:  "textile"
+timezone: 'Asia/Shanghai'
+
+
+# Serving
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://localhost:4000/" # the base hostname & protocol for your site
+
+
+#菜单配置
+nav:
+  - text: Blog
+    url: /index.html
+  - text: About
+    url: /about.html
+  - text: Works
+    url: /works.html
+  - text: GitHub
+    url: https://github.com/pizn/pizn.github.com
+
+
+# Social info
+weibo_username: weibo
+github_username:  guan-wy
+# twitter_username: jekyllrb
+
+
+# Build settings
+markdown: kramdown

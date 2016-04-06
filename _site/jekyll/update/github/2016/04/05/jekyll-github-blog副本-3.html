@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>博客来自：Jekyll + GitHub</title>
+  <meta name="description" content="本篇用最通俗易懂的方法介绍如何用 Jekyll 和 GitHub 搭建一个简单小巧的个人博客。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC-3.html">
+  <link rel="alternate" type="application/rss+xml" title="H2SO4's blog" href="http://localhost:4000//feed.xml">
+  <style>
+  	.markdown-body {
+  		box-sizing: border-box;
+  		min-width: 200px;
+  		max-width: 980px;
+  		margin: 0 auto;
+  		padding: 45px;
+  	}
+  </style>
+</head>
+
+<body>
+
+  <div class="color-ribbon top"></div>
+
+  <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">H2SO4's blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        <a class="page-link" href="http://localhost:4000/">Blog</a>
+        <a class="page-link" href="http://localhost:4000/">About</a>
+        <a class="page-link" href="https://github.com/guan-wy">GitHub</a>
+        <a class="page-link" href="">Email</a>
+      </div>
+
+      <!-- <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/blog/category/github/">Articles by category: GitHub</a>
+          
+        
+          
+          <a class="page-link" href="/blog/tag/github/">Articles by tag: GitHub</a>
+          
+        
+          
+          <a class="page-link" href="/blog/">Articles</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/blog/tag/jekyll/">Articles by tag: Jekyll</a>
+          
+        
+          
+          <a class="page-link" href="/blog/category/jekyll/">Articles by category: Jekyll</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/blog/tag/note/">Articles by tag: Note</a>
+          
+        
+          
+          <a class="page-link" href="/blog/category/update/">Articles by category: Update</a>
+          
+        
+      </div> -->
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+  <div class="page-content">
+    <div class="wrapper">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+
+  <div class="post-content markdown-body" itemprop="articleBody">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">博客来自：Jekyll + GitHub</h1>
+      <p class="post-meta"><time datetime="2016-04-05T20:51:27+08:00" itemprop="datePublished">Apr 05, 2016</time></p>
+    </header>
+    <p>本篇用最通俗易懂的方法介绍如何用 Jekyll 和 GitHub 搭建一个简单小巧的个人博客。</p>
+
+<p>其实想开博客的想法存了有一两年了，我其实不是很擅长写文章，就连流水账到最后也坚持不下来。前期入过手账坑，一股脑儿地买过好多胶带和贴纸。手账断更之后，因为在工作中为公司的博客写过 wordpress 主题，所以有打算用 wordpress 自己设计一套主题，可是万万没想到，等我做完项目我就再也不想看到 wordpress 了（原因自行脑补）。最后打算用 Jekyll 主要因为支持 markdown 和 Sass 并且真的很简单，而且通过 GitHub 管理也很方便。</p>
+
+<p><strong>Prepare</strong></p>
+
+<p>创建步骤、介绍、文件结构就不列了，附上 <a href="http://jekyllrb.com/">Jekyll</a> 和 <a href="https://pages.github.com/">GitHub Pages</a> 官网链接。</p>
+
+<p><strong>_config.yml</strong></p>
+
+<p>配置文件中主要包含这么几大部分：博客信息、个人信息、菜单配置、社交信息、菜单配置、路由信息和一些其他的配置（根据实际情况取舍）</p>
+
+<p><strong>Category &amp; Tag</strong></p>
+
+<ol>
+  <li>
+    <p>首先保证 <code class="highlighter-rouge">_posts</code> 中的文章有类别 categories 和 tag 属性，如果有多个属性或者标签写成 <code class="highlighter-rouge">tag: [jekyll, blog]</code> 的形式。</p>
+  </li>
+  <li>
+    <p>在 <code class="highlighter-rouge">_layouts</code> 中添加两个模版文件，分别为：<code class="highlighter-rouge">blog_by_category.html</code> 和 <code class="highlighter-rouge">blog_by_tag.html</code>。</p>
+  </li>
+  <li>
+    <p>在博客项目的根目录下新建一个文件夹叫做 <code class="highlighter-rouge">blog</code>，包含 <code class="highlighter-rouge">category</code> 和 <code class="highlighter-rouge">tag</code>两个子文件夹。</p>
+  </li>
+  <li>
+    <p>对应分类与标签页的路由：<code class="highlighter-rouge">blog/category/jekyll/</code>、<code class="highlighter-rouge">blog/tag/jekyll/</code>，每个分类和标签页都生成了单独的静态页面。</p>
+  </li>
+  <li>
+    <p>在首页中显示分类信息和标签内容：(去掉%前面的/)，具体内容可以在项目里面看到。</p>
+  </li>
+</ol>
+
+<p><strong>Comment</strong></p>
+
+<p>先通过 <a href="https://disqus.com/">DISQUS</a> 注册账号，然后在 <code class="highlighter-rouge">post.html</code> 模版对下面加上这么一段代码：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div id="disqus_thread"&gt; &lt;/div&gt;
+    &lt;script type="text/javascript"&gt;
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'cenalulu'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    &lt;/script&gt;
+    &lt;noscript&gt;Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<p><strong>Date</strong></p>
+
+<p>不同的日期格式： <code class="highlighter-rouge">page.date | 替换部分</code></p>
+
+<p><code class="highlighter-rouge">date_to_string</code>: 05 Apr 2016</p>
+
+<p><code class="highlighter-rouge">date_to_long_string</code>: 05 April 2016</p>
+
+<p><code class="highlighter-rouge">date: "%b %-d, %Y"</code>: Apr 5, 2016</p>
+
+<p><code class="highlighter-rouge">date:"%B %d, %Y"</code>: April 05, 2016</p>
+
+<p><code class="highlighter-rouge">date: "%Y-%m-%d"</code>: 2016-04-05</p>
+
+<p><code class="highlighter-rouge">date: "%m/%d/%Y"</code>: 04/05/2016</p>
+
+<p><code class="highlighter-rouge">date: "%-m/%-d/%Y"</code>: 4/5/2016</p>
+
+<p>这里只列了几种常用的，其他更多的日期格式可以参考 <a href="http://alanwsmith.com/jekyll-liquid-date-formatting-examples">Jekyll Date Formatting Examples</a></p>
+
+<p><strong>Theme</strong></p>
+
+<p>本博客的主题的主题色是：<span style="display: inline-block; width: 12px; height: 12px; background-color: #92b34c;"></span> #92b34c <span style="display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .6); margin-left: 20px;"></span> 60%  <span style="display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .2); margin-left: 20px;"></span> 20%</p>
+
+<p>Markdown 的样式参考 <a href="https://github.com/sindresorhus/github-markdown-css">sindresorhus/github-markdown-css</a>，在此基础之上做了一些调整。</p>
+
+<p>写这篇文章的时候我猛然发现我的设计稿已经不见了……肯定被我清文件的时候误丢到垃圾桶里了！！！</p>
+
+<p>(╯°□°）╯︵ ┻━┻</p>
+
+<p>不过没事，我还有仅存的两张 jpg（捂胸口</p>
+
+<p>在搭建博客之前没有考虑 markdown 的主要标签的样式，所以建议大家先搭再设计。</p>
+
+<p>ps: (这里放第一版的设计图，完成日期：2016年3月3日)</p>
+
+<p><img src="http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Post%20.jpg" alt="博客文章内页" /></p>
+
+<p><img src="http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Index%203.13%2018:00.jpg" alt="博客首页" /></p>
+
+<h3 id="section">变幻莫测的人生啊</h3>
+
+<p>6号下午决定不用 Jekyll 了，因为我突然发现有比 Jekyll 更好的了。。。（我真的不是善变</p>
+
+<p>但是之前写的这篇文章，源文件（半成品）还是决定挂出来，不知道能不能有帮助？</p>
+
+<p>另外这个设计的主题有喜欢的就拿去用吧 :D</p>
+
+  </div>
+
+</article>
+
+<div id="disqus_thread"> </div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'h2so4'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="copyright">
+      <p>© 2016 Wenyan </p>
+      <p>Powered by Jekyll and Github Page.</p>
+      <h3>The End.</h3>
+    </div>
+
+    <!-- <h2 class="footer-heading">H2SO4's blog</h2> -->
+
+    <!-- <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>H2SO4's blog</li>
+          <li><a href="mailto:wenyan.guan@gmail.com">wenyan.guan@gmail.com</a></li>
+        </ul>
+      </div> -->
+<!--
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/guan-wy"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">guan-wy</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div> -->
+
+      <!-- <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div> -->
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <div class="color-ribbon bottom"></div>
+
+</body>
+</html>

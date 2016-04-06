@@ -1,6 +1,10 @@
-# Blog-Jekyll
-
-复制于唯一一篇 `post.md`
+---
+layout: post
+title:  "博客来自：Jekyll + GitHub"
+date:   2016-04-05 20:51:27 +0800
+categories: [Jekyll, Update, GitHub ]
+tag: [Note, Jekyll, GitHub]
+---
 
 本篇用最通俗易懂的方法介绍如何用 Jekyll 和 GitHub 搭建一个简单小巧的个人博客。
 

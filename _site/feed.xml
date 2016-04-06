@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>H2SO4&#39;s blog</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://localhost:4000//</link>
+    <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 06 Apr 2016 20:55:03 +0800</pubDate>
+    <lastBuildDate>Wed, 06 Apr 2016 20:55:03 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>博客来自：Jekyll + GitHub</title>
+        <description>&lt;p&gt;本篇用最通俗易懂的方法介绍如何用 Jekyll 和 GitHub 搭建一个简单小巧的个人博客。&lt;/p&gt;
+
+&lt;p&gt;其实想开博客的想法存了有一两年了，我其实不是很擅长写文章，就连流水账到最后也坚持不下来。前期入过手账坑，一股脑儿地买过好多胶带和贴纸。手账断更之后，因为在工作中为公司的博客写过 wordpress 主题，所以有打算用 wordpress 自己设计一套主题，可是万万没想到，等我做完项目我就再也不想看到 wordpress 了（原因自行脑补）。最后打算用 Jekyll 主要因为支持 markdown 和 Sass 并且真的很简单，而且通过 GitHub 管理也很方便。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prepare&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;创建步骤、介绍、文件结构就不列了，附上 &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; 和 &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; 官网链接。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;配置文件中主要包含这么几大部分：博客信息、个人信息、菜单配置、社交信息、菜单配置、路由信息和一些其他的配置（根据实际情况取舍）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Category &amp;amp; Tag&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;首先保证 &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; 中的文章有类别 categories 和 tag 属性，如果有多个属性或者标签写成 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag: [jekyll, blog]&lt;/code&gt; 的形式。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; 中添加两个模版文件，分别为：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_category.html&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_tag.html&lt;/code&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在博客项目的根目录下新建一个文件夹叫做 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog&lt;/code&gt;，包含 &lt;code class=&quot;highlighter-rouge&quot;&gt;category&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag&lt;/code&gt;两个子文件夹。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对应分类与标签页的路由：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/category/jekyll/&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/tag/jekyll/&lt;/code&gt;，每个分类和标签页都生成了单独的静态页面。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在首页中显示分类信息和标签内容：(去掉%前面的/)，具体内容可以在项目里面看到。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Comment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;先通过 &lt;a href=&quot;https://disqus.com/&quot;&gt;DISQUS&lt;/a&gt; 注册账号，然后在 &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt; 模版对下面加上这么一段代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;disqus_thread&quot;&amp;gt; &amp;lt;/div&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = &#39;cenalulu&#39;; // required: replace example with your forum shortname
+        /* * * DON&#39;T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
+            dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
+            (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
+        })();
+    &amp;lt;/script&amp;gt;
+    &amp;lt;noscript&amp;gt;Please enable JavaScript to view the &amp;lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&amp;gt;comments powered by Disqus.&amp;lt;/a&amp;gt;&amp;lt;/noscript&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Date&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;不同的日期格式： &lt;code class=&quot;highlighter-rouge&quot;&gt;page.date | 替换部分&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_string&lt;/code&gt;: 05 Apr 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_long_string&lt;/code&gt;: 05 April 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%b %-d, %Y&quot;&lt;/code&gt;: Apr 5, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date:&quot;%B %d, %Y&quot;&lt;/code&gt;: April 05, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%Y-%m-%d&quot;&lt;/code&gt;: 2016-04-05&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%m/%d/%Y&quot;&lt;/code&gt;: 04/05/2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%-m/%-d/%Y&quot;&lt;/code&gt;: 4/5/2016&lt;/p&gt;
+
+&lt;p&gt;这里只列了几种常用的，其他更多的日期格式可以参考 &lt;a href=&quot;http://alanwsmith.com/jekyll-liquid-date-formatting-examples&quot;&gt;Jekyll Date Formatting Examples&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;本博客的主题的主题色是：&lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: #92b34c;&quot;&gt;&lt;/span&gt; #92b34c &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .6); margin-left: 20px;&quot;&gt;&lt;/span&gt; 60%  &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .2); margin-left: 20px;&quot;&gt;&lt;/span&gt; 20%&lt;/p&gt;
+
+&lt;p&gt;Markdown 的样式参考 &lt;a href=&quot;https://github.com/sindresorhus/github-markdown-css&quot;&gt;sindresorhus/github-markdown-css&lt;/a&gt;，在此基础之上做了一些调整。&lt;/p&gt;
+
+&lt;p&gt;写这篇文章的时候我猛然发现我的设计稿已经不见了……肯定被我清文件的时候误丢到垃圾桶里了！！！&lt;/p&gt;
+
+&lt;p&gt;(╯°□°）╯︵ ┻━┻&lt;/p&gt;
+
+&lt;p&gt;不过没事，我还有仅存的两张 jpg（捂胸口&lt;/p&gt;
+
+&lt;p&gt;在搭建博客之前没有考虑 markdown 的主要标签的样式，所以建议大家先搭再设计。&lt;/p&gt;
+
+&lt;p&gt;ps: (这里放第一版的设计图，完成日期：2016年3月3日)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Post%20.jpg&quot; alt=&quot;博客文章内页&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Index%203.13%2018:00.jpg&quot; alt=&quot;博客首页&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;变幻莫测的人生啊&lt;/h3&gt;
+
+&lt;p&gt;6号下午决定不用 Jekyll 了，因为我突然发现有比 Jekyll 更好的了。。。（我真的不是善变&lt;/p&gt;
+
+&lt;p&gt;但是之前写的这篇文章，源文件（半成品）还是决定挂出来，不知道能不能有帮助？&lt;/p&gt;
+
+&lt;p&gt;另外这个设计的主题有喜欢的就拿去用吧 :D&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Apr 2016 20:51:27 +0800</pubDate>
+        <link>http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC.html</link>
+        <guid isPermaLink="true">http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC.html</guid>
+        
+        <category>Note</category>
+        
+        <category>Jekyll</category>
+        
+        <category>GitHub</category>
+        
+        
+        <category>Jekyll</category>
+        
+        <category>Update</category>
+        
+        <category>GitHub</category>
+        
+      </item>
+    
+      <item>
+        <title>博客来自：Jekyll + GitHub</title>
+        <description>&lt;p&gt;本篇用最通俗易懂的方法介绍如何用 Jekyll 和 GitHub 搭建一个简单小巧的个人博客。&lt;/p&gt;
+
+&lt;p&gt;其实想开博客的想法存了有一两年了，我其实不是很擅长写文章，就连流水账到最后也坚持不下来。前期入过手账坑，一股脑儿地买过好多胶带和贴纸。手账断更之后，因为在工作中为公司的博客写过 wordpress 主题，所以有打算用 wordpress 自己设计一套主题，可是万万没想到，等我做完项目我就再也不想看到 wordpress 了（原因自行脑补）。最后打算用 Jekyll 主要因为支持 markdown 和 Sass 并且真的很简单，而且通过 GitHub 管理也很方便。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prepare&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;创建步骤、介绍、文件结构就不列了，附上 &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; 和 &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; 官网链接。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;配置文件中主要包含这么几大部分：博客信息、个人信息、菜单配置、社交信息、菜单配置、路由信息和一些其他的配置（根据实际情况取舍）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Category &amp;amp; Tag&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;首先保证 &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; 中的文章有类别 categories 和 tag 属性，如果有多个属性或者标签写成 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag: [jekyll, blog]&lt;/code&gt; 的形式。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; 中添加两个模版文件，分别为：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_category.html&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_tag.html&lt;/code&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在博客项目的根目录下新建一个文件夹叫做 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog&lt;/code&gt;，包含 &lt;code class=&quot;highlighter-rouge&quot;&gt;category&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag&lt;/code&gt;两个子文件夹。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对应分类与标签页的路由：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/category/jekyll/&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/tag/jekyll/&lt;/code&gt;，每个分类和标签页都生成了单独的静态页面。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在首页中显示分类信息和标签内容：(去掉%前面的/)，具体内容可以在项目里面看到。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Comment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;先通过 &lt;a href=&quot;https://disqus.com/&quot;&gt;DISQUS&lt;/a&gt; 注册账号，然后在 &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt; 模版对下面加上这么一段代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;disqus_thread&quot;&amp;gt; &amp;lt;/div&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = &#39;cenalulu&#39;; // required: replace example with your forum shortname
+        /* * * DON&#39;T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
+            dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
+            (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
+        })();
+    &amp;lt;/script&amp;gt;
+    &amp;lt;noscript&amp;gt;Please enable JavaScript to view the &amp;lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&amp;gt;comments powered by Disqus.&amp;lt;/a&amp;gt;&amp;lt;/noscript&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Date&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;不同的日期格式： &lt;code class=&quot;highlighter-rouge&quot;&gt;page.date | 替换部分&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_string&lt;/code&gt;: 05 Apr 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_long_string&lt;/code&gt;: 05 April 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%b %-d, %Y&quot;&lt;/code&gt;: Apr 5, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date:&quot;%B %d, %Y&quot;&lt;/code&gt;: April 05, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%Y-%m-%d&quot;&lt;/code&gt;: 2016-04-05&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%m/%d/%Y&quot;&lt;/code&gt;: 04/05/2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%-m/%-d/%Y&quot;&lt;/code&gt;: 4/5/2016&lt;/p&gt;
+
+&lt;p&gt;这里只列了几种常用的，其他更多的日期格式可以参考 &lt;a href=&quot;http://alanwsmith.com/jekyll-liquid-date-formatting-examples&quot;&gt;Jekyll Date Formatting Examples&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;本博客的主题的主题色是：&lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: #92b34c;&quot;&gt;&lt;/span&gt; #92b34c &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .6); margin-left: 20px;&quot;&gt;&lt;/span&gt; 60%  &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .2); margin-left: 20px;&quot;&gt;&lt;/span&gt; 20%&lt;/p&gt;
+
+&lt;p&gt;Markdown 的样式参考 &lt;a href=&quot;https://github.com/sindresorhus/github-markdown-css&quot;&gt;sindresorhus/github-markdown-css&lt;/a&gt;，在此基础之上做了一些调整。&lt;/p&gt;
+
+&lt;p&gt;写这篇文章的时候我猛然发现我的设计稿已经不见了……肯定被我清文件的时候误丢到垃圾桶里了！！！&lt;/p&gt;
+
+&lt;p&gt;(╯°□°）╯︵ ┻━┻&lt;/p&gt;
+
+&lt;p&gt;不过没事，我还有仅存的两张 jpg（捂胸口&lt;/p&gt;
+
+&lt;p&gt;在搭建博客之前没有考虑 markdown 的主要标签的样式，所以建议大家先搭再设计。&lt;/p&gt;
+
+&lt;p&gt;ps: (这里放第一版的设计图，完成日期：2016年3月3日)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Post%20.jpg&quot; alt=&quot;博客文章内页&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Index%203.13%2018:00.jpg&quot; alt=&quot;博客首页&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;变幻莫测的人生啊&lt;/h3&gt;
+
+&lt;p&gt;6号下午决定不用 Jekyll 了，因为我突然发现有比 Jekyll 更好的了。。。（我真的不是善变&lt;/p&gt;
+
+&lt;p&gt;但是之前写的这篇文章，源文件（半成品）还是决定挂出来，不知道能不能有帮助？&lt;/p&gt;
+
+&lt;p&gt;另外这个设计的主题有喜欢的就拿去用吧 :D&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Apr 2016 20:51:27 +0800</pubDate>
+        <link>http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC-5.html</link>
+        <guid isPermaLink="true">http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC-5.html</guid>
+        
+        <category>Note</category>
+        
+        <category>Jekyll</category>
+        
+        <category>GitHub</category>
+        
+        
+        <category>Jekyll</category>
+        
+        <category>Update</category>
+        
+        <category>GitHub</category>
+        
+      </item>
+    
+      <item>
+        <title>博客来自：Jekyll + GitHub</title>
+        <description>&lt;p&gt;本篇用最通俗易懂的方法介绍如何用 Jekyll 和 GitHub 搭建一个简单小巧的个人博客。&lt;/p&gt;
+
+&lt;p&gt;其实想开博客的想法存了有一两年了，我其实不是很擅长写文章，就连流水账到最后也坚持不下来。前期入过手账坑，一股脑儿地买过好多胶带和贴纸。手账断更之后，因为在工作中为公司的博客写过 wordpress 主题，所以有打算用 wordpress 自己设计一套主题，可是万万没想到，等我做完项目我就再也不想看到 wordpress 了（原因自行脑补）。最后打算用 Jekyll 主要因为支持 markdown 和 Sass 并且真的很简单，而且通过 GitHub 管理也很方便。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prepare&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;创建步骤、介绍、文件结构就不列了，附上 &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; 和 &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; 官网链接。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;配置文件中主要包含这么几大部分：博客信息、个人信息、菜单配置、社交信息、菜单配置、路由信息和一些其他的配置（根据实际情况取舍）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Category &amp;amp; Tag&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;首先保证 &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; 中的文章有类别 categories 和 tag 属性，如果有多个属性或者标签写成 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag: [jekyll, blog]&lt;/code&gt; 的形式。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; 中添加两个模版文件，分别为：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_category.html&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_tag.html&lt;/code&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在博客项目的根目录下新建一个文件夹叫做 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog&lt;/code&gt;，包含 &lt;code class=&quot;highlighter-rouge&quot;&gt;category&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag&lt;/code&gt;两个子文件夹。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对应分类与标签页的路由：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/category/jekyll/&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/tag/jekyll/&lt;/code&gt;，每个分类和标签页都生成了单独的静态页面。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在首页中显示分类信息和标签内容：(去掉%前面的/)，具体内容可以在项目里面看到。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Comment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;先通过 &lt;a href=&quot;https://disqus.com/&quot;&gt;DISQUS&lt;/a&gt; 注册账号，然后在 &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt; 模版对下面加上这么一段代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;disqus_thread&quot;&amp;gt; &amp;lt;/div&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = &#39;cenalulu&#39;; // required: replace example with your forum shortname
+        /* * * DON&#39;T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
+            dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
+            (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
+        })();
+    &amp;lt;/script&amp;gt;
+    &amp;lt;noscript&amp;gt;Please enable JavaScript to view the &amp;lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&amp;gt;comments powered by Disqus.&amp;lt;/a&amp;gt;&amp;lt;/noscript&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Date&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;不同的日期格式： &lt;code class=&quot;highlighter-rouge&quot;&gt;page.date | 替换部分&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_string&lt;/code&gt;: 05 Apr 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_long_string&lt;/code&gt;: 05 April 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%b %-d, %Y&quot;&lt;/code&gt;: Apr 5, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date:&quot;%B %d, %Y&quot;&lt;/code&gt;: April 05, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%Y-%m-%d&quot;&lt;/code&gt;: 2016-04-05&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%m/%d/%Y&quot;&lt;/code&gt;: 04/05/2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%-m/%-d/%Y&quot;&lt;/code&gt;: 4/5/2016&lt;/p&gt;
+
+&lt;p&gt;这里只列了几种常用的，其他更多的日期格式可以参考 &lt;a href=&quot;http://alanwsmith.com/jekyll-liquid-date-formatting-examples&quot;&gt;Jekyll Date Formatting Examples&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;本博客的主题的主题色是：&lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: #92b34c;&quot;&gt;&lt;/span&gt; #92b34c &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .6); margin-left: 20px;&quot;&gt;&lt;/span&gt; 60%  &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .2); margin-left: 20px;&quot;&gt;&lt;/span&gt; 20%&lt;/p&gt;
+
+&lt;p&gt;Markdown 的样式参考 &lt;a href=&quot;https://github.com/sindresorhus/github-markdown-css&quot;&gt;sindresorhus/github-markdown-css&lt;/a&gt;，在此基础之上做了一些调整。&lt;/p&gt;
+
+&lt;p&gt;写这篇文章的时候我猛然发现我的设计稿已经不见了……肯定被我清文件的时候误丢到垃圾桶里了！！！&lt;/p&gt;
+
+&lt;p&gt;(╯°□°）╯︵ ┻━┻&lt;/p&gt;
+
+&lt;p&gt;不过没事，我还有仅存的两张 jpg（捂胸口&lt;/p&gt;
+
+&lt;p&gt;在搭建博客之前没有考虑 markdown 的主要标签的样式，所以建议大家先搭再设计。&lt;/p&gt;
+
+&lt;p&gt;ps: (这里放第一版的设计图，完成日期：2016年3月3日)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Post%20.jpg&quot; alt=&quot;博客文章内页&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Index%203.13%2018:00.jpg&quot; alt=&quot;博客首页&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;变幻莫测的人生啊&lt;/h3&gt;
+
+&lt;p&gt;6号下午决定不用 Jekyll 了，因为我突然发现有比 Jekyll 更好的了。。。（我真的不是善变&lt;/p&gt;
+
+&lt;p&gt;但是之前写的这篇文章，源文件（半成品）还是决定挂出来，不知道能不能有帮助？&lt;/p&gt;
+
+&lt;p&gt;另外这个设计的主题有喜欢的就拿去用吧 :D&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Apr 2016 20:51:27 +0800</pubDate>
+        <link>http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC-4.html</link>
+        <guid isPermaLink="true">http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC-4.html</guid>
+        
+        <category>Note</category>
+        
+        <category>Jekyll</category>
+        
+        <category>GitHub</category>
+        
+        
+        <category>Jekyll</category>
+        
+        <category>Update</category>
+        
+        <category>GitHub</category>
+        
+      </item>
+    
+      <item>
+        <title>博客来自：Jekyll + GitHub</title>
+        <description>&lt;p&gt;本篇用最通俗易懂的方法介绍如何用 Jekyll 和 GitHub 搭建一个简单小巧的个人博客。&lt;/p&gt;
+
+&lt;p&gt;其实想开博客的想法存了有一两年了，我其实不是很擅长写文章，就连流水账到最后也坚持不下来。前期入过手账坑，一股脑儿地买过好多胶带和贴纸。手账断更之后，因为在工作中为公司的博客写过 wordpress 主题，所以有打算用 wordpress 自己设计一套主题，可是万万没想到，等我做完项目我就再也不想看到 wordpress 了（原因自行脑补）。最后打算用 Jekyll 主要因为支持 markdown 和 Sass 并且真的很简单，而且通过 GitHub 管理也很方便。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prepare&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;创建步骤、介绍、文件结构就不列了，附上 &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; 和 &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; 官网链接。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;配置文件中主要包含这么几大部分：博客信息、个人信息、菜单配置、社交信息、菜单配置、路由信息和一些其他的配置（根据实际情况取舍）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Category &amp;amp; Tag&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;首先保证 &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; 中的文章有类别 categories 和 tag 属性，如果有多个属性或者标签写成 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag: [jekyll, blog]&lt;/code&gt; 的形式。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; 中添加两个模版文件，分别为：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_category.html&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_tag.html&lt;/code&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在博客项目的根目录下新建一个文件夹叫做 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog&lt;/code&gt;，包含 &lt;code class=&quot;highlighter-rouge&quot;&gt;category&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag&lt;/code&gt;两个子文件夹。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对应分类与标签页的路由：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/category/jekyll/&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/tag/jekyll/&lt;/code&gt;，每个分类和标签页都生成了单独的静态页面。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在首页中显示分类信息和标签内容：(去掉%前面的/)，具体内容可以在项目里面看到。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Comment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;先通过 &lt;a href=&quot;https://disqus.com/&quot;&gt;DISQUS&lt;/a&gt; 注册账号，然后在 &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt; 模版对下面加上这么一段代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;disqus_thread&quot;&amp;gt; &amp;lt;/div&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = &#39;cenalulu&#39;; // required: replace example with your forum shortname
+        /* * * DON&#39;T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
+            dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
+            (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
+        })();
+    &amp;lt;/script&amp;gt;
+    &amp;lt;noscript&amp;gt;Please enable JavaScript to view the &amp;lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&amp;gt;comments powered by Disqus.&amp;lt;/a&amp;gt;&amp;lt;/noscript&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Date&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;不同的日期格式： &lt;code class=&quot;highlighter-rouge&quot;&gt;page.date | 替换部分&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_string&lt;/code&gt;: 05 Apr 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_long_string&lt;/code&gt;: 05 April 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%b %-d, %Y&quot;&lt;/code&gt;: Apr 5, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date:&quot;%B %d, %Y&quot;&lt;/code&gt;: April 05, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%Y-%m-%d&quot;&lt;/code&gt;: 2016-04-05&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%m/%d/%Y&quot;&lt;/code&gt;: 04/05/2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%-m/%-d/%Y&quot;&lt;/code&gt;: 4/5/2016&lt;/p&gt;
+
+&lt;p&gt;这里只列了几种常用的，其他更多的日期格式可以参考 &lt;a href=&quot;http://alanwsmith.com/jekyll-liquid-date-formatting-examples&quot;&gt;Jekyll Date Formatting Examples&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;本博客的主题的主题色是：&lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: #92b34c;&quot;&gt;&lt;/span&gt; #92b34c &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .6); margin-left: 20px;&quot;&gt;&lt;/span&gt; 60%  &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .2); margin-left: 20px;&quot;&gt;&lt;/span&gt; 20%&lt;/p&gt;
+
+&lt;p&gt;Markdown 的样式参考 &lt;a href=&quot;https://github.com/sindresorhus/github-markdown-css&quot;&gt;sindresorhus/github-markdown-css&lt;/a&gt;，在此基础之上做了一些调整。&lt;/p&gt;
+
+&lt;p&gt;写这篇文章的时候我猛然发现我的设计稿已经不见了……肯定被我清文件的时候误丢到垃圾桶里了！！！&lt;/p&gt;
+
+&lt;p&gt;(╯°□°）╯︵ ┻━┻&lt;/p&gt;
+
+&lt;p&gt;不过没事，我还有仅存的两张 jpg（捂胸口&lt;/p&gt;
+
+&lt;p&gt;在搭建博客之前没有考虑 markdown 的主要标签的样式，所以建议大家先搭再设计。&lt;/p&gt;
+
+&lt;p&gt;ps: (这里放第一版的设计图，完成日期：2016年3月3日)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Post%20.jpg&quot; alt=&quot;博客文章内页&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Index%203.13%2018:00.jpg&quot; alt=&quot;博客首页&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;变幻莫测的人生啊&lt;/h3&gt;
+
+&lt;p&gt;6号下午决定不用 Jekyll 了，因为我突然发现有比 Jekyll 更好的了。。。（我真的不是善变&lt;/p&gt;
+
+&lt;p&gt;但是之前写的这篇文章，源文件（半成品）还是决定挂出来，不知道能不能有帮助？&lt;/p&gt;
+
+&lt;p&gt;另外这个设计的主题有喜欢的就拿去用吧 :D&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Apr 2016 20:51:27 +0800</pubDate>
+        <link>http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC-3.html</link>
+        <guid isPermaLink="true">http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC-3.html</guid>
+        
+        <category>Note</category>
+        
+        <category>Jekyll</category>
+        
+        <category>GitHub</category>
+        
+        
+        <category>Jekyll</category>
+        
+        <category>Update</category>
+        
+        <category>GitHub</category>
+        
+      </item>
+    
+      <item>
+        <title>博客来自：Jekyll + GitHub</title>
+        <description>&lt;p&gt;本篇用最通俗易懂的方法介绍如何用 Jekyll 和 GitHub 搭建一个简单小巧的个人博客。&lt;/p&gt;
+
+&lt;p&gt;其实想开博客的想法存了有一两年了，我其实不是很擅长写文章，就连流水账到最后也坚持不下来。前期入过手账坑，一股脑儿地买过好多胶带和贴纸。手账断更之后，因为在工作中为公司的博客写过 wordpress 主题，所以有打算用 wordpress 自己设计一套主题，可是万万没想到，等我做完项目我就再也不想看到 wordpress 了（原因自行脑补）。最后打算用 Jekyll 主要因为支持 markdown 和 Sass 并且真的很简单，而且通过 GitHub 管理也很方便。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prepare&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;创建步骤、介绍、文件结构就不列了，附上 &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; 和 &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; 官网链接。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;配置文件中主要包含这么几大部分：博客信息、个人信息、菜单配置、社交信息、菜单配置、路由信息和一些其他的配置（根据实际情况取舍）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Category &amp;amp; Tag&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;首先保证 &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; 中的文章有类别 categories 和 tag 属性，如果有多个属性或者标签写成 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag: [jekyll, blog]&lt;/code&gt; 的形式。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; 中添加两个模版文件，分别为：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_category.html&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_tag.html&lt;/code&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在博客项目的根目录下新建一个文件夹叫做 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog&lt;/code&gt;，包含 &lt;code class=&quot;highlighter-rouge&quot;&gt;category&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag&lt;/code&gt;两个子文件夹。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对应分类与标签页的路由：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/category/jekyll/&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/tag/jekyll/&lt;/code&gt;，每个分类和标签页都生成了单独的静态页面。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在首页中显示分类信息和标签内容：(去掉%前面的/)，具体内容可以在项目里面看到。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Comment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;先通过 &lt;a href=&quot;https://disqus.com/&quot;&gt;DISQUS&lt;/a&gt; 注册账号，然后在 &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt; 模版对下面加上这么一段代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;disqus_thread&quot;&amp;gt; &amp;lt;/div&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = &#39;cenalulu&#39;; // required: replace example with your forum shortname
+        /* * * DON&#39;T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
+            dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
+            (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
+        })();
+    &amp;lt;/script&amp;gt;
+    &amp;lt;noscript&amp;gt;Please enable JavaScript to view the &amp;lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&amp;gt;comments powered by Disqus.&amp;lt;/a&amp;gt;&amp;lt;/noscript&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Date&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;不同的日期格式： &lt;code class=&quot;highlighter-rouge&quot;&gt;page.date | 替换部分&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_string&lt;/code&gt;: 05 Apr 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_long_string&lt;/code&gt;: 05 April 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%b %-d, %Y&quot;&lt;/code&gt;: Apr 5, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date:&quot;%B %d, %Y&quot;&lt;/code&gt;: April 05, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%Y-%m-%d&quot;&lt;/code&gt;: 2016-04-05&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%m/%d/%Y&quot;&lt;/code&gt;: 04/05/2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%-m/%-d/%Y&quot;&lt;/code&gt;: 4/5/2016&lt;/p&gt;
+
+&lt;p&gt;这里只列了几种常用的，其他更多的日期格式可以参考 &lt;a href=&quot;http://alanwsmith.com/jekyll-liquid-date-formatting-examples&quot;&gt;Jekyll Date Formatting Examples&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;本博客的主题的主题色是：&lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: #92b34c;&quot;&gt;&lt;/span&gt; #92b34c &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .6); margin-left: 20px;&quot;&gt;&lt;/span&gt; 60%  &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .2); margin-left: 20px;&quot;&gt;&lt;/span&gt; 20%&lt;/p&gt;
+
+&lt;p&gt;Markdown 的样式参考 &lt;a href=&quot;https://github.com/sindresorhus/github-markdown-css&quot;&gt;sindresorhus/github-markdown-css&lt;/a&gt;，在此基础之上做了一些调整。&lt;/p&gt;
+
+&lt;p&gt;写这篇文章的时候我猛然发现我的设计稿已经不见了……肯定被我清文件的时候误丢到垃圾桶里了！！！&lt;/p&gt;
+
+&lt;p&gt;(╯°□°）╯︵ ┻━┻&lt;/p&gt;
+
+&lt;p&gt;不过没事，我还有仅存的两张 jpg（捂胸口&lt;/p&gt;
+
+&lt;p&gt;在搭建博客之前没有考虑 markdown 的主要标签的样式，所以建议大家先搭再设计。&lt;/p&gt;
+
+&lt;p&gt;ps: (这里放第一版的设计图，完成日期：2016年3月3日)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Post%20.jpg&quot; alt=&quot;博客文章内页&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Index%203.13%2018:00.jpg&quot; alt=&quot;博客首页&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;变幻莫测的人生啊&lt;/h3&gt;
+
+&lt;p&gt;6号下午决定不用 Jekyll 了，因为我突然发现有比 Jekyll 更好的了。。。（我真的不是善变&lt;/p&gt;
+
+&lt;p&gt;但是之前写的这篇文章，源文件（半成品）还是决定挂出来，不知道能不能有帮助？&lt;/p&gt;
+
+&lt;p&gt;另外这个设计的主题有喜欢的就拿去用吧 :D&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Apr 2016 20:51:27 +0800</pubDate>
+        <link>http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC-2.html</link>
+        <guid isPermaLink="true">http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog%E5%89%AF%E6%9C%AC-2.html</guid>
+        
+        <category>Note</category>
+        
+        <category>Jekyll</category>
+        
+        <category>GitHub</category>
+        
+        
+        <category>Jekyll</category>
+        
+        <category>Update</category>
+        
+        <category>GitHub</category>
+        
+      </item>
+    
+      <item>
+        <title>博客来自：Jekyll + GitHub</title>
+        <description>&lt;p&gt;本篇用最通俗易懂的方法介绍如何用 Jekyll 和 GitHub 搭建一个简单小巧的个人博客。&lt;/p&gt;
+
+&lt;p&gt;其实想开博客的想法存了有一两年了，我其实不是很擅长写文章，就连流水账到最后也坚持不下来。前期入过手账坑，一股脑儿地买过好多胶带和贴纸。手账断更之后，因为在工作中为公司的博客写过 wordpress 主题，所以有打算用 wordpress 自己设计一套主题，可是万万没想到，等我做完项目我就再也不想看到 wordpress 了（原因自行脑补）。最后打算用 Jekyll 主要因为支持 markdown 和 Sass 并且真的很简单，而且通过 GitHub 管理也很方便。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prepare&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;创建步骤、介绍、文件结构就不列了，附上 &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; 和 &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; 官网链接。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;配置文件中主要包含这么几大部分：博客信息、个人信息、菜单配置、社交信息、菜单配置、路由信息和一些其他的配置（根据实际情况取舍）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Category &amp;amp; Tag&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;首先保证 &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; 中的文章有类别 categories 和 tag 属性，如果有多个属性或者标签写成 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag: [jekyll, blog]&lt;/code&gt; 的形式。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; 中添加两个模版文件，分别为：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_category.html&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog_by_tag.html&lt;/code&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在博客项目的根目录下新建一个文件夹叫做 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog&lt;/code&gt;，包含 &lt;code class=&quot;highlighter-rouge&quot;&gt;category&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;tag&lt;/code&gt;两个子文件夹。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对应分类与标签页的路由：&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/category/jekyll/&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;blog/tag/jekyll/&lt;/code&gt;，每个分类和标签页都生成了单独的静态页面。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在首页中显示分类信息和标签内容：(去掉%前面的/)，具体内容可以在项目里面看到。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Comment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;先通过 &lt;a href=&quot;https://disqus.com/&quot;&gt;DISQUS&lt;/a&gt; 注册账号，然后在 &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt; 模版对下面加上这么一段代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;disqus_thread&quot;&amp;gt; &amp;lt;/div&amp;gt;
+    &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = &#39;cenalulu&#39;; // required: replace example with your forum shortname
+        /* * * DON&#39;T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
+            dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
+            (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
+        })();
+    &amp;lt;/script&amp;gt;
+    &amp;lt;noscript&amp;gt;Please enable JavaScript to view the &amp;lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&amp;gt;comments powered by Disqus.&amp;lt;/a&amp;gt;&amp;lt;/noscript&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Date&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;不同的日期格式： &lt;code class=&quot;highlighter-rouge&quot;&gt;page.date | 替换部分&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_string&lt;/code&gt;: 05 Apr 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date_to_long_string&lt;/code&gt;: 05 April 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%b %-d, %Y&quot;&lt;/code&gt;: Apr 5, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date:&quot;%B %d, %Y&quot;&lt;/code&gt;: April 05, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%Y-%m-%d&quot;&lt;/code&gt;: 2016-04-05&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%m/%d/%Y&quot;&lt;/code&gt;: 04/05/2016&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;date: &quot;%-m/%-d/%Y&quot;&lt;/code&gt;: 4/5/2016&lt;/p&gt;
+
+&lt;p&gt;这里只列了几种常用的，其他更多的日期格式可以参考 &lt;a href=&quot;http://alanwsmith.com/jekyll-liquid-date-formatting-examples&quot;&gt;Jekyll Date Formatting Examples&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;本博客的主题的主题色是：&lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: #92b34c;&quot;&gt;&lt;/span&gt; #92b34c &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .6); margin-left: 20px;&quot;&gt;&lt;/span&gt; 60%  &lt;span style=&quot;display: inline-block; width: 12px; height: 12px; background-color: rgba(146, 179, 76, .2); margin-left: 20px;&quot;&gt;&lt;/span&gt; 20%&lt;/p&gt;
+
+&lt;p&gt;Markdown 的样式参考 &lt;a href=&quot;https://github.com/sindresorhus/github-markdown-css&quot;&gt;sindresorhus/github-markdown-css&lt;/a&gt;，在此基础之上做了一些调整。&lt;/p&gt;
+
+&lt;p&gt;写这篇文章的时候我猛然发现我的设计稿已经不见了……肯定被我清文件的时候误丢到垃圾桶里了！！！&lt;/p&gt;
+
+&lt;p&gt;(╯°□°）╯︵ ┻━┻&lt;/p&gt;
+
+&lt;p&gt;不过没事，我还有仅存的两张 jpg（捂胸口&lt;/p&gt;
+
+&lt;p&gt;在搭建博客之前没有考虑 markdown 的主要标签的样式，所以建议大家先搭再设计。&lt;/p&gt;
+
+&lt;p&gt;ps: (这里放第一版的设计图，完成日期：2016年3月3日)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Post%20.jpg&quot; alt=&quot;博客文章内页&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xso7u.com2.z0.glb.clouddn.com/Blog%20Index%203.13%2018:00.jpg&quot; alt=&quot;博客首页&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;变幻莫测的人生啊&lt;/h3&gt;
+
+&lt;p&gt;6号下午决定不用 Jekyll 了，因为我突然发现有比 Jekyll 更好的了。。。（我真的不是善变&lt;/p&gt;
+
+&lt;p&gt;但是之前写的这篇文章，源文件（半成品）还是决定挂出来，不知道能不能有帮助？&lt;/p&gt;
+
+&lt;p&gt;另外这个设计的主题有喜欢的就拿去用吧 :D&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Apr 2016 20:51:27 +0800</pubDate>
+        <link>http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog.html</link>
+        <guid isPermaLink="true">http://localhost:4000//jekyll/update/github/2016/04/05/jekyll-github-blog.html</guid>
+        
+        <category>Note</category>
+        
+        <category>Jekyll</category>
+        
+        <category>GitHub</category>
+        
+        
+        <category>Jekyll</category>
+        
+        <category>Update</category>
+        
+        <category>GitHub</category>
+        
+      </item>
+    
+  </channel>
+</rss>

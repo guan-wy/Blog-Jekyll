@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="home-post">
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li>
+          <h3 class="post-title">
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h3>
+          <span class="post-meta">{{ post.date | date:"%b %d, %Y" }}</span>
+          <!-- <span class="post-meta">categories: {{ post.categories }}</span> -->
+          <p class="post-content">
+             {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+          </p>
+          <a class="post-read" href="{{ post.url | prepend: site.baseurl }}">Continue reading →</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+
+  <div class="side-bar">
+    <ul class="categories-list">
+      <h4>CATEGORY</h4>
+      {% for category in site.categories %}
+        <li>
+          <a href="/blog/category/{{ category | first }}/" title="view all posts">
+            {{ category | first }} {{ category | last | size }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <ul class="categories-list">
+      <h4>TAG</h4>
+      {% for tag in site.tags %}
+        <li>
+          <a href="/blog/tag/{{ tag | first }}/" title="view all posts">
+            {{ tag | first }} {{ tag | last | size }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+
+<!--
+  <ul class="categories">
+    {% for my_page in site.pages %}
+      {% if my_page.title %}
+      <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+      {% endif %}
+    {% endfor %}
+  </ul> -->
+
+<!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
