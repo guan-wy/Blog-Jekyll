@@ -93,3 +93,16 @@ ps: (这里放第一版的设计图，完成日期：2016年3月3日)
 但是之前写的这篇文章，源文件（半成品）还是决定挂出来，不知道能不能有帮助？
 
 另外这个设计的主题有喜欢的就拿去用吧 :D
+
+### DISQUS 的坑
+
+关于 DISQUS 的 shortname，shortname 和 name 和 username 都不一样！！！都不一样！！！都不一样！！！
+
+只简单注册完了的用户，在右上角头像处可以看到有一个 Add Disqus to Site，需要走完所有流程，这里设置的 shortname 才是需要。
+
+Site 建成功后，右上角菜单里才有 Admin 这个选项。
+
+```
+var disqus_shortname = 'h2so4';
+```
+
